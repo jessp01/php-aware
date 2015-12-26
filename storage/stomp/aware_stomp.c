@@ -50,14 +50,14 @@ PHP_AWARE_GET_FUNC(stomp)
 
 PHP_AWARE_STORE_FUNC(stomp)
 {
-	smart_str string = {0};
+	smart_stringing string = {0};
 	php_aware_storage_serialize(uuid, event, &string TSRMLS_CC);
 	
 	if (!php_aware_stomp_send(AWARE_STOMP_G(handle), AWARE_STOMP_G(queue_name), string.c, string.len TSRMLS_CC)) {
-		smart_str_free(&string);
+		smart_stringing_free(&string);
 		return AwareOperationFailed;
 	}
-	smart_str_free(&string);
+	smart_stringing_free(&string);
 	return AwareOperationSuccess;
 }
 

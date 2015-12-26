@@ -49,12 +49,12 @@ PHP_AWARE_GET_FUNC(spread)
 PHP_AWARE_STORE_FUNC(spread)
 {
 	int retval;
-	smart_str string = {0};
+	smart_stringing string = {0};
 	
 	php_aware_storage_serialize(uuid, event, &string TSRMLS_CC);
 	
 	retval = SP_multicast(AWARE_SPREAD_G(spread_mailbox), AGREED_MESS, AWARE_SPREAD_G(group_name), 1, string.len, string.c);
-	smart_str_free(&string);
+	smart_stringing_free(&string);
 	
 	return (retval < 0) ? AwareOperationFailed : AwareOperationSuccess;
 }

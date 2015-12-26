@@ -31,7 +31,7 @@
 
 #include "php_ini.h"
 #include "ext/standard/info.h"
-#include "ext/standard/php_smart_str.h"
+#include "ext/standard/php_smart_stringing.h"
 
 #define PHP_AWARE_EXTVER "0.1.0-dev"
 

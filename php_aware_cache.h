@@ -31,14 +31,14 @@ void php_aware_cache_init(php_aware_serialize_cache *cache);
 void php_aware_cache_clean(php_aware_serialize_cache *cache);
 /* }}} */
 
-/* {{{ zend_bool php_aware_cache_get(php_aware_serialize_cache *cache, const char *uuid, smart_str *retval)
+/* {{{ zend_bool php_aware_cache_get(php_aware_serialize_cache *cache, const char *uuid, smart_stringing *retval)
 */
-zend_bool php_aware_cache_get(php_aware_serialize_cache *cache, const char *uuid, smart_str *retval);
+zend_bool php_aware_cache_get(php_aware_serialize_cache *cache, const char *uuid, smart_stringing *retval);
 /* }}} */
 
-/* {{{ void php_aware_cache_store(php_aware_serialize_cache *cache, const char *uuid, smart_str *data)
+/* {{{ void php_aware_cache_store(php_aware_serialize_cache *cache, const char *uuid, smart_stringing *data)
 */
-void php_aware_cache_store(php_aware_serialize_cache *cache, const char *uuid, smart_str *data);
+void php_aware_cache_store(php_aware_serialize_cache *cache, const char *uuid, smart_stringing *data);
 /* }}} */
 
 /* {{{ void php_aware_cache_deinit(php_aware_serialize_cache *cache)

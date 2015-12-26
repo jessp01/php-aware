@@ -72,7 +72,7 @@ PHP_AWARE_STORE_FUNC(zeromq2)
 	int rc;
 	zmq_msg_t msg;
 	
-	smart_str string = {0};
+	smart_stringing string = {0};
 	
 	php_aware_storage_serialize(uuid, event, &string TSRMLS_CC);
 	
@@ -85,7 +85,7 @@ PHP_AWARE_STORE_FUNC(zeromq2)
 	}
 
 	if (rc != 0) {
-		smart_str_free(&string);
+		smart_stringing_free(&string);
 		return AwareOperationFailed;
 	}
 	
@@ -99,7 +99,7 @@ PHP_AWARE_STORE_FUNC(zeromq2)
 	rc = zmq_send(AWARE_ZEROMQ2_G(socket), &msg, ZMQ_NOBLOCK);
 	
 	zmq_msg_close(&msg);
-	smart_str_free(&string);
+	smart_stringing_free(&string);
 	
 	return (rc == 0) ? AwareOperationSuccess : AwareOperationFailed;
 }

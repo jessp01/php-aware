@@ -56,7 +56,7 @@ PHP_AWARE_GET_FUNC(tokyo)
 PHP_AWARE_STORE_FUNC(tokyo)
 {
 	zend_bool status = 0;
-	smart_str string = {0};
+	smart_stringing string = {0};
 	
 	php_aware_storage_serialize(uuid, event, &string TSRMLS_CC);
 	
@@ -65,7 +65,7 @@ PHP_AWARE_STORE_FUNC(tokyo)
 	} else if (AWARE_TOKYO_G(backend) == AwareTokyoBackendTyrant) {
 		status = php_aware_tyrant_put(AWARE_TOKYO_G(tyrant), uuid, string.c, string.len);
 	}
-	smart_str_free(&string);
+	smart_stringing_free(&string);
 	return (status) ? AwareOperationSuccess : AwareOperationFailed;
 }
 

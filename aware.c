@@ -144,7 +144,9 @@ PHP_FUNCTION(__aware_error_handler_callback)
 		}
 		
 		aware_printf("Invoking error handler: %s\n", Z_STRVAL_P(AWARE_G(user_error_handler)));
-		php_aware_invoke_handler(Z_LVAL_P(args[0]) TSRMLS_CC, Z_STRVAL_P(args[2]), Z_LVAL_P(args[3]), Z_STRVAL_P(args[1]));
+		//php_aware_invoke_handler(Z_LVAL_P(args[0]) TSRMLS_CC, Z_STRVAL_P(args[2]), Z_LVAL_P(args[3]), Z_STRVAL_P(args[1]));
+		php_aware_invoke_handler(Z_RES_P(args[0])->handle TSRMLS_CC, Z_STR_P(args[2]), Z_RES_P(args[3])->handle, Z_STR_P(args[1]));
+//void php_aware_invoke_handler(int type TSRMLS_DC, const char *error_filename, const uint error_lineno, const char *format, ...)
 		call_user_function(EG(function_table), NULL, AWARE_G(user_error_handler), &retval, 5, args TSRMLS_CC);
 	}
 }
@@ -351,7 +353,7 @@ static void php_aware_user_event_trigger(int type TSRMLS_DC, const char *error_f
 	va_end(args);
 }
 
-void php_aware_invoke_handler(int type TSRMLS_DC, const char *error_filename, const uint error_lineno, const char *format, ...)
+void php_aware_invoke_handler(int type TSRMLS_DC, zend_string *error_filename, const uint error_lineno, zend_string *format, ...)
 {
 	zval *event;
 	va_list args;

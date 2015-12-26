@@ -39,7 +39,8 @@ void php_aware_capture_error_ex(zval *, int, const char *, const uint, zend_bool
 
 /* {{{ void php_aware_invoke_handler(int TSRMLS_DC, const char *, const uint, const char *, ...);
 */
-void php_aware_invoke_handler(int TSRMLS_DC, const char *, const uint, const char *, ...);
+//void php_aware_invoke_handler(int TSRMLS_DC, const char *, const uint, const char *, ...);
+void php_aware_invoke_handler(int TSRMLS_DC, zend_string *, const uint, zend_string *, ...);
 /* }}} */
 
 #ifndef Z_ADDREF_PP

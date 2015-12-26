@@ -69,7 +69,7 @@ PHP_AWARE_STORE_FUNC(files)
 {
 	char filename[MAXPATHLEN];
 	php_stream *stream;
-	smart_str string = {0};
+	smart_stringing string = {0};
 
 	if (snprintf(filename, MAXPATHLEN, "%s/%s.aware", AWARE_FILES_G(storage_path), uuid) <= 0) {
 		return AwareOperationFailed;
@@ -87,12 +87,12 @@ PHP_AWARE_STORE_FUNC(files)
 	
 	if (php_stream_write(stream, string.c, string.len) < string.len) {
 		php_stream_close(stream);
-		smart_str_free(&string);
+		smart_stringing_free(&string);
 		return AwareOperationFailed;
 	}
 	
 	php_stream_close(stream);
-	smart_str_free(&string);
+	smart_stringing_free(&string);
 	
 	return AwareOperationSuccess;
 }

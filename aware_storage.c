@@ -20,7 +20,7 @@
 #include "php_aware_storage.h"
 
 #include "ext/standard/php_var.h"
-#include "ext/standard/php_smart_str.h"
+#include "ext/standard/php_smart_stringing.h"
 #include "ext/standard/php_string.h"
 
 ZEND_DECLARE_MODULE_GLOBALS(aware)
@@ -132,9 +132,9 @@ void php_aware_storage_module_list(zval *return_value)
 }
 /* }}} */
 
-/* {{{ MY_AWARE_EXPORTS void php_aware_storage_serialize(const char *uuid, zval *event, smart_str *data_var TSRMLS_DC)
+/* {{{ MY_AWARE_EXPORTS void php_aware_storage_serialize(const char *uuid, zval *event, smart_stringing *data_var TSRMLS_DC)
 */
-MY_AWARE_EXPORTS void php_aware_storage_serialize(const char *uuid, zval *event, smart_str *data_var TSRMLS_DC)
+MY_AWARE_EXPORTS void php_aware_storage_serialize(const char *uuid, zval *event, smart_stringing *data_var TSRMLS_DC)
 {
 	php_serialize_data_t var_hash;
 	

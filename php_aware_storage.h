@@ -20,7 +20,7 @@
 # define _PHP_AWARE_STORAGE_H_
 
 #include "php_aware.h"
-#include "ext/standard/php_smart_str.h"
+#include "ext/standard/php_smart_stringing.h"
 
 /* {{{ define the string length of the uuid
 */
@@ -103,9 +103,9 @@ zend_bool php_aware_storage_delete(const char *mod_name, const char *uuid TSRMLS
 void php_aware_storage_module_list(zval *return_value);
 /* }}} */
 
-/* {{{ MY_AWARE_EXPORTS void php_aware_storage_serialize(const char *uuid, zval *event, smart_str *data_var TSRMLS_DC);
+/* {{{ MY_AWARE_EXPORTS void php_aware_storage_serialize(const char *uuid, zval *event, smart_stringing *data_var TSRMLS_DC);
 */
-MY_AWARE_EXPORTS void php_aware_storage_serialize(const char *uuid, zval *event, smart_str *data_var TSRMLS_DC);
+MY_AWARE_EXPORTS void php_aware_storage_serialize(const char *uuid, zval *event, smart_stringing *data_var TSRMLS_DC);
 /* }}} */
 
 /* {{{ MY_AWARE_EXPORTS zend_bool php_aware_storage_unserialize(const char *, int , zval * TSRMLS_DC);

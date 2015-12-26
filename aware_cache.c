@@ -44,22 +44,22 @@ void php_aware_cache_clean(php_aware_serialize_cache *cache)
 }
 /* }}} */
 
-/* {{{ zend_bool php_aware_cache_get(php_aware_serialize_cache *cache, const char *uuid, smart_str *retval)
+/* {{{ zend_bool php_aware_cache_get(php_aware_serialize_cache *cache, const char *uuid, smart_stringing *retval)
 */
-zend_bool php_aware_cache_get(php_aware_serialize_cache *cache, const char *uuid, smart_str *retval)
+zend_bool php_aware_cache_get(php_aware_serialize_cache *cache, const char *uuid, smart_stringing *retval)
 {
 	if (cache->has_item && !strcmp(cache->uuid, uuid)) {
-		smart_str_appendl(retval, cache->data, cache->data_len);
-		smart_str_0(retval);
+		smart_stringing_appendl(retval, cache->data, cache->data_len);
+		smart_stringing_0(retval);
 		return 1;
 	}
 	return 0;
 }
 /* }}} */
 
-/* {{{ void php_aware_cache_store(php_aware_serialize_cache *cache, const char *uuid, smart_str *data)
+/* {{{ void php_aware_cache_store(php_aware_serialize_cache *cache, const char *uuid, smart_stringing *data)
 */
-void php_aware_cache_store(php_aware_serialize_cache *cache, const char *uuid, smart_str *data)
+void php_aware_cache_store(php_aware_serialize_cache *cache, const char *uuid, smart_stringing *data)
 {
 	if (cache->has_item)
 		php_aware_cache_clean(cache);
